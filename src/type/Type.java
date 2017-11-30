@@ -1,5 +1,6 @@
 package type;
 
+//chaque type possede une faiblesse et une force face a un autre type
 public class Type {
 	public static final Type Normal=new Type("Normal","","");
 	public static final Type Eau=new Type("Eau","Air","Feu");
