@@ -1,7 +1,5 @@
 package combat;
 
-import java.applet.Applet;
-import java.applet.AudioClip;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -9,17 +7,13 @@ import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.net.URL;
 import java.util.Timer;
 import java.util.TimerTask;
-import java.util.concurrent.TimeUnit;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-
-import monstre.Pikachu;
 
 public class interfaceCombat extends JPanel{
 	private afficheCombat combat;
@@ -46,7 +40,6 @@ public class interfaceCombat extends JPanel{
 			choix=new JPanel(new GridLayout(1,2));
 			ActionListener ac=new ActionListener(){
 
-				@Override
 				public void actionPerformed(ActionEvent e) {
 					//si notre monstre n'est pas mort on peut attaquer
 					if(!combat.getM1().Mort()){
@@ -84,7 +77,6 @@ public class interfaceCombat extends JPanel{
 			choix=new JPanel(new GridLayout(2,2));
 			ActionListener ac=new ActionListener(){
 
-				@Override
 				public void actionPerformed(ActionEvent e) {
 					//pour chaque monstre
 					for(int i=0;i<6;i++){
@@ -152,8 +144,7 @@ public class interfaceCombat extends JPanel{
 			choix=new JPanel(new GridLayout(2,2));
 			ActionListener ac=new ActionListener(){
 
-				@Override
-				public void actionPerformed(ActionEvent e) {
+				public void actionPerformed(final ActionEvent e) {
 
 					setChoix("menu");
 					add(texte,BorderLayout.CENTER);
