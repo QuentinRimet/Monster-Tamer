@@ -7,10 +7,8 @@ public  abstract class Buff extends Sort{
 
 	public Buff(Type t, int p) {
 		super(t, p);
-		// TODO Auto-generated constructor stub
 	}
+	//permet de changer les stats du monstre selectionné
 	public abstract void effet(Monstre m);  
-	public void test(){
-		
-	}
+	
 }

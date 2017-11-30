@@ -7,7 +7,6 @@ public class LanceDeFoudre extends Attaque {
 	
 	public LanceDeFoudre(){
 	super(Type.Air, 15);
-	// TODO Auto-generated constructor stub
 }
 
 @Override

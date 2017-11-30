@@ -22,22 +22,34 @@ public class Monstre {
 	private Sort[] sort=new Sort[4];
 	private Dresseur dresseur;
 
+	//permet d'initialiser les attributs du monstre
 	public Monstre(String n,int i,int e,int h,int a,int d,Type t,int v,Dresseur dr){
+		//son nom
 		nom=n;
+		//son niveau
 		niv=i;
+		//son experience
 		exp=e;
+		//ses hp par niveau
 		hpniv=h;
+		//ses hp actuel
 		hp=hpniv*niv;
+		//ses attaque et defence par niveau
 		attaqueniv=a;
 		defenceniv=d;
+		//ses attaque et defence actuel
 		attaque=attaqueniv*niv;
 		defence=defenceniv*niv;
+		//son type
 		type=t;
+		//sa vitesse par niveau et actuel
 		vitniv=v;
 		vit=v*niv;
+		//son dresseur
 		dresseur=dr;
 	}
 	
+	//permet d'ajouter un Sort si celui-ci est un sort de type normal ou du meme niveau que celui du monstre
 	public void ajouterSort(Sort s,int a){
 		if(a<4 && a>=0)
 		if(s.getType().toString()=="Normal" || s.getType().toString()==type.toString()){
@@ -45,17 +57,22 @@ public class Monstre {
 		}
 	}
 	
+	//permet au monstre d'utiliser un sort
 	public void utiliserSort(int a,Monstre m){
 		if(a<4 && a>=0 && !m.Mort() && !this.Mort()){
+			//si un buff alors on le jette sur soi
 			if(sort[a] instanceof Buff)
 				((Buff)sort[a]).effet(this);
+			//sinon on le jette sur l'ennemie
 			if(sort[a] instanceof Attaque)
 				((Attaque)sort[a]).effet(this,m);
+			//si la cible meurt alors on gagne de l'experience
 			if(m.Mort())
 				this.gainXP((int)(((Double)(m.getNiv()/(niv*2.0)))*1000.0));		
 			}
 		
 	}
+	//permet de soigner le monstre
 	public void soigner(int a){
 		if(a>0){
 			hp+=a;
@@ -64,6 +81,7 @@ public class Monstre {
 			}
 		}
 	}
+	//permet au monstre de prendre des degats
 	public void prendreDegats(int a){
 		if(a>0){
 			hp-=a;
@@ -71,10 +89,12 @@ public class Monstre {
 				hp=0;
 		}
 	}
-
+	
+	//permet au monstre de gagner de l'experience
 	public void gainXP(int a){
 		if(a>0 && niv!=100){
 			exp+=a;
+			//si assez d'exp alors le monstre gagne un niveau
 			if(exp>=1000){
 				int c=exp;
 				for(int b=0;b<c/1000;b++){
@@ -84,7 +104,8 @@ public class Monstre {
 			}
 		}
 	}
-
+	
+	//permet au monstre de gagner un niveau
 	public void gainNiv(){
 		if(niv!=100){
 			niv+=1;
@@ -182,6 +203,8 @@ public class Monstre {
 	public void setSort(Sort[] sort) {
 		this.sort = sort;
 	}
+	
+	//permet de savoir si le monstre est mort
 	public boolean Mort(){
 		if (hp==0)
 			return true;

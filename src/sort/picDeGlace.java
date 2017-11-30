@@ -7,7 +7,6 @@ public class picDeGlace extends Attaque{
 
 	public picDeGlace( ) {
 		super(Type.Eau, 15);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override

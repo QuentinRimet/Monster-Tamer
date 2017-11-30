@@ -13,8 +13,9 @@ import monstre.Salameche;
 public class Main extends JFrame{
 
 	public static void main(String[] args) {
-		Dresseur dr=new Dresseur("Sa chatte");
-		Dresseur dr1=new Dresseur("On dine ?");
+		Dresseur dr=new Dresseur("Sacha");
+		Dresseur dr1=new Dresseur("Ondine");
+		//on donne des monstres aléatoire à sacha
 		for(int i=0;i<6;i++){
 			int a=(int)(Math.random()*4);
 			if(a==0)
@@ -26,6 +27,7 @@ public class Main extends JFrame{
 			if(a==3)
 				dr.ajouterMonstre(new Sabelette(5,dr));
 		}
+		//on donne des monstres aléatoire à ondine
 		for(int i=0;i<6;i++){
 			int a=(int)(Math.random()*4);
 			if(a==0)
@@ -45,6 +47,7 @@ public class Main extends JFrame{
 		afficheCombat pan=new afficheCombat(dr,dr1);
 		interfaceCombat pan2=new interfaceCombat(pan);
 		Combat combat=new Combat(pan,pan2);
+		
 		f.setContentPane(combat);
 		f.setTitle("Monster Tamer");
 		f.pack();

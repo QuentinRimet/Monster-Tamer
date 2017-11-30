@@ -7,7 +7,6 @@ public class Charge extends Attaque {
 
 	public Charge() {
 		super(Type.Normal, 15);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override

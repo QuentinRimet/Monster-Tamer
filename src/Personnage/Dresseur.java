@@ -11,15 +11,16 @@ public class Dresseur extends Personnage {
 		super(n);
 		ite=0;
 		actif=0;
-		// TODO Auto-generated constructor stub
 	}
 	
+	//permet au dresseur d'ajouter un monstre à sa collection
 	public void ajouterMonstre(Monstre m){
 		if(ite<6){
 			monstre[ite]=m;
 			ite++;
 		}
 	}
+	///si le dresseur n'a plus de monstre en vie alors il a perdu
 	public boolean perdu(){
 		for(int i=0;i<ite;i++){
 			if(!monstre[i].Mort())
@@ -28,6 +29,7 @@ public class Dresseur extends Personnage {
 		return true;
 	}
 	
+	//envoi le prochain monstre du dresseur si ils ne sont pas tous morts
 	public int envoiProch(){
 		for(int i=0;i<ite;i++){
 			if(!monstre[i].Mort())

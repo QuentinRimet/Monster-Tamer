@@ -7,7 +7,6 @@ public class BouleDeFeu extends Attaque {
 
 	public BouleDeFeu( ) {
 		super(Type.Feu, 15);
-		// TODO Auto-generated constructor stub
 	}
 
 	@Override

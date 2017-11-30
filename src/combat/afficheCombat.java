@@ -20,6 +20,7 @@ public class afficheCombat extends JPanel{
 	private Monstre m1;
 	private Monstre m2;
 
+	//on initialise le combat
 	public afficheCombat(Dresseur d,Dresseur d1){
 		dr=d;
 		dr1=d1;
@@ -27,16 +28,18 @@ public class afficheCombat extends JPanel{
 		m2=d1.getMonstre()[d1.getActif()];
 		this.setPreferredSize(new Dimension(480,300));
 	}
+	
 	public void changerMonstreEnnemie(){
 		m2=dr1.getMonstre()[dr1.envoiProch()];
 	}
+	
 	public void changerMonstre(int i){
 		m1=dr.getMonstre()[i];
 	}
 
 	public void paintComponent(Graphics g){
 		super.paintComponent(g);
-		//mise en place des pokemon avec l'arene
+		//mise en place des monstres avec l'arene
 
 		try {
 			BufferedImage image;
@@ -44,6 +47,8 @@ public class afficheCombat extends JPanel{
 
 			image = ImageIO.read(new File("sprite/Combat1.png"));
 			g.drawImage(image,-02,-102,505,405, null);
+			
+			//monstre allié
 			if(!m1.Mort()){
 				if(m1 instanceof Gobou){
 					image = ImageIO.read(new File("sprite/Gobou.png"));
@@ -64,7 +69,7 @@ public class afficheCombat extends JPanel{
 							}
 			}
 			//******************
-
+			//monstre ennemie
 			if(!m2.Mort()){
 				if(m2 instanceof Gobou){
 					image = ImageIO.read(new File("sprite/Gobou1.png"));
@@ -87,6 +92,7 @@ public class afficheCombat extends JPanel{
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+		
 		//barre hp des monstres
 
 		g.fillRoundRect(280, 230, 200, 10, 10,10);
