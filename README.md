@@ -12,7 +12,7 @@ Lors du combat de nombreuse caractéristiques des monstres sont utilisés comme 
 
 ![alt text](/Screenshot/Capture.PNG)
 
-![alt text](/Monster-Tamer/blob/master/Screenshot/CaptureAttaque.PNG)
+![alt text](/Screenshot/CaptureAttaque.PNG)
 
 Si il décide de changer de monstre alors celui ci doit décider du monstre à envoyer. Lorsque le changement à été fait le monstre adverse attaque alors le monstre du joueur et le tour se finit.
 
